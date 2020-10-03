@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql, StaticQuery, Link } from 'gatsby';
 import styled from 'styled-components';
-import SiteInfo from './SiteInfo';
 import Logo from './Logo';
 
 const MainMenuWrapper = styled.div`
@@ -43,11 +42,7 @@ const MainMenu = () => (
 			<MainMenuWrapper>
 				<MainMenuInner>
 					<Logo />
-					{props.wordpressMenuLocation.menuData.items.map((item) => (
-						<MenuItem to={item.url} key={item.title}>
-							{item.title}
-						</MenuItem>
-					))}
+					{props.wordpressMenuLocation.menuData.items.map((item) => <MenuItem>{item.title}</MenuItem>)}
 				</MainMenuInner>
 			</MainMenuWrapper>
 		)}
