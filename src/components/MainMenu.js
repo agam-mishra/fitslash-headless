@@ -26,13 +26,14 @@ const MainMenu = () => (
 	<StaticQuery
 		query={graphql`
 			{
-				wordpressMenuLocation(slug: { eq: "top" }) {
+				wordpressMenuLocation(menuData: { slug: { eq: "main-menu" } }) {
+					id
 					menuData {
 						items {
-							menu_order
 							slug
-							title
 							url
+							title
+							object
 						}
 					}
 				}
@@ -42,7 +43,7 @@ const MainMenu = () => (
 			<MainMenuWrapper>
 				<MainMenuInner>
 					<Logo />
-					{props.wordpressMenuLocation.menuData.items.map((item) => <MenuItem>{item.title}</MenuItem>)}
+					{props.wordpressMenuLocation.menuData.items.map((object) => <MenuItem>{object.title}</MenuItem>)}
 				</MainMenuInner>
 			</MainMenuWrapper>
 		)}

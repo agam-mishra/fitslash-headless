@@ -1,0 +1,12 @@
+query MyQuery {
+  wordpressMenuLocation(menuData: {name: {eq: "main-menu"}}) {
+    id
+    menuData {
+      items {
+        url
+        title
+        slug
+      }
+    }
+  }
+}
